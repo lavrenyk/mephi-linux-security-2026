@@ -1,0 +1,97 @@
+    1  su -
+    2  su user1
+    3  ip link
+    4  nmcli connection show
+    5  sudo nmcli connection modify "enp0s5" ipv4.method auto
+    6  sudo nmcli connection up "enp0s5"
+    7  ip a
+    8  sudo hostnamectl set-hostname mephi-2026.domain.local
+    9  hostnamectl
+   10  echo "127.0.0.1 mephi-2026.domain.local mephi-2026" | sudo tee -a /etc/hosts
+   11  ping 8.8.8.8
+   12  $ ping -c 4 8.8.8.8 > ping.out
+   13  ping -c 4 8.8.8.8 > ping.out
+   14  sudo dnf upgrade -y
+   15  sudo dnf install -y nginx libcap-ng-utils
+   16  sudo systemctl enable --now nginx
+   17  dnf download tcpdump --destdir=/tmp
+   18  sudo rpm -ivh /tmp/tcpdump*.rpm
+   19  sudo dnf history > dnf.out
+   20  cat dnf.out
+   21  lsblk
+   22  history > history.out
+   23  cat history.out 
+   24  stat /data/mephi-2026 > stat.out
+   25  cat stat.out 
+   26  stat /mephi-web >> stat.out
+   27  cat stat.out 
+   28  getcap $(which tcpdump) > getcap.out
+   29  sudo dnf history > dnf.out
+   30  journalctl -u nginx -b > journalctl.out
+   31  getenforce > getenforce.out
+   32  curl http://localhost/ > curl.out
+   33  sudo cp /etc/fstab ./fstab
+   34  sudo cp /etc/passwd ./passwd
+   35  sudo cp /etc/shadow ./shadow
+   36  sudo cp /etc/group ./group
+   37  sudo cp /etc/security/pwquality.conf ./pwquality.conf
+   38  ping -c 4 8.8.8.8 > ~/ping.out
+   39  stat /data/mephi-2026 > ~/stat.out
+   40  getcap /usr/sbin/tcpdump > ~/getcap.out
+   41  dnf history > ~/dnf.out
+   42  journalctl -u nginx -b > ~/journalctl.out
+   43  getenforce > ~/getenforce.out
+   44  stat /mephi-web >> ~/stat.out
+   45  curl http://localhost/ > curl.out 
+   46  ls
+   47  sudo cp /etc/shadow ./shadow
+   48  cat shadow 
+   49  sudo chmod +r shadow
+   50  clear
+   51  sudo usermod -u 5501 user1
+   52  sudo usermod -aG students user1
+   53  sudo usermod -aG students user2
+   54  sudo usermod -aG students user3
+   55  id user1
+   56  id user2
+   57  id user3
+   58  getent group user1
+   59  getent group 5501
+   60  sudo groupadd -g 5501 user1
+   61  sudo usermod -g user1 -aG students user1
+   62  id user1
+   63  sudo find /home /data /mephi-web -uid 1234 -ls
+   64  sudo dnf install -y acl
+   65  sudo getfacl -R -p /data/mephi-2026 > ~/acl-before.out
+   66  sudo chown root:students /data/mephi-2026
+   67  sudo find /data/mephi-2026 -type d -exec chgrp students {} +
+   68  sudo find /data/mephi-2026 -type f -exec chgrp students {} +
+   69  sudo find /data/mephi-2026 -type d -exec chmod g+s {} +
+   70  sudo find /data/mephi-2026 -type d -exec   setfacl --set 'u::rwx,g::rwx,g:curators:r-x,m::rwx,o::---' {} +
+   71  sudo find /data/mephi-2026 -type f -exec   setfacl --set 'u::rw-,g::rw-,g:curators:r--,m::rw-,o::---' {} +
+   72  sudo find /data/mephi-2026 -type d -exec   setfacl -d --set 'u::rwx,g::rwx,g:curators:r-x,m::rwx,o::---' {} +
+   73  sudo -u user1 mkdir /data/mephi-2026/access-check
+   74  for creator in user1 user2 user3; do   sudo -u "$creator" sh -c     'echo created > "/data/mephi-2026/access-check/$1.txt"' sh "$creator"; done
+   75  for developer in user1 user2 user3; do   for creator in user1 user2 user3; do     sudo -u "$developer" cat       "/data/mephi-2026/access-check/$creator.txt";      sudo -u "$developer" sh -c       'echo updated >> "/data/mephi-2026/access-check/$1.txt"' sh "$creator";   done; done
+   76  for curator in curator1 curator2; do   sudo -u "$curator" cat /data/mephi-2026/access-check/user1.txt;    sudo -u "$curator" sh -c     'echo forbidden >> /data/mephi-2026/access-check/user1.txt';    sudo -u "$curator" rm /data/mephi-2026/access-check/user1.txt; done
+   77  sudo -u nobody ls /data/mephi-2026
+   78  sudo -u nobody cat /data/mephi-2026/access-check/user1.txt
+   79  sudo passwd user2
+   80  sudo passwd user3
+   81  sudo passwd -S user1
+   82  sudo passwd -S user2
+   83  sudo passwd -S user3
+   84  for account in user1 user2 user3 curator1 curator2; do   sudo chage -M 90 "$account"; done
+   85  grep -n pam_pwquality /etc/pam.d/system-auth /etc/pam.d/password-auth
+   86  ls -l /usr/sbin/tcpdump
+   87  sudo -u user1 timeout 10 tcpdump -i any -c 1 -nn
+   88  sudo chmod u-s /usr/sbin/tcpdump
+   89  sudo setcap cap_net_admin,cap_net_raw=eip /usr/sbin/tcpdump
+   90  stat /data/mephi-2026 > ~/stat.out
+   91  stat /mephi-web >> ~/stat.out
+   92  getfacl -R -p /data/mephi-2026 > ~/acl.out
+   93  sudo getfacl -R -p /data/mephi-2026 > ~/acl.out
+   94  sudo getcap /usr/sbin/tcpdump > ~/getcap.out
+   95  {   id user1;   id user2;   id user3;   id curator1;   id curator2; } > ~/users-check.out
+   96  history -a
+   97  history > ~/history.out

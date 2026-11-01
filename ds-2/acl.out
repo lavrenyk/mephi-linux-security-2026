@@ -1,0 +1,57 @@
+# file: /data/mephi-2026
+# owner: root
+# group: students
+# flags: -s-
+user::rwx
+group::rwx
+group:curators:r-x
+mask::rwx
+other::---
+default:user::rwx
+default:group::rwx
+default:group:curators:r-x
+default:mask::rwx
+default:other::---
+
+# file: /data/mephi-2026/access-check
+# owner: user1
+# group: students
+# flags: -s-
+user::rwx
+group::rwx
+group:curators:r-x
+mask::rwx
+other::---
+default:user::rwx
+default:group::rwx
+default:group:curators:r-x
+default:mask::rwx
+default:other::---
+
+# file: /data/mephi-2026/access-check/user1.txt
+# owner: user1
+# group: students
+user::rw-
+group::rwx	#effective:rw-
+group:curators:r-x	#effective:r--
+mask::rw-
+other::---
+
+# file: /data/mephi-2026/access-check/user3.txt
+# owner: user3
+# group: students
+user::rw-
+group::rwx	#effective:rw-
+group:curators:r-x	#effective:r--
+mask::rw-
+other::---
+
+# file: /data/mephi-2026/access-check/user2.txt
+# owner: user2
+# group: students
+user::rw-
+group::rwx	#effective:rw-
+group:curators:r-x	#effective:r--
+mask::rw-
+other::---
+

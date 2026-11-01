@@ -1,0 +1,6 @@
+tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
+listening on any, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144 bytes
+19:02:53.688201 enp0s5 Out IP6 fdb2:2c26:f4e4:0:21c:42ff:feb5:db4b.5353 > ff02::fb.5353: 0 [2q] PTR (QM)? _ipp._tcp.local. PTR (QM)? _ipps._tcp.local. (45)
+1 packet captured
+4 packets received by filter
+0 packets dropped by kernel

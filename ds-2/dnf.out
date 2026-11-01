@@ -1,0 +1,8 @@
+Иденти | Командная строка                                                                               | Дата и время     | Действия       | Изменен
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+     6 | install -y nginx libcap-ng-utils                                                               | 2026-11-01 17:27 | Install        |    6   
+     5 | upgrade -y                                                                                     | 2026-11-01 17:24 | I, O, U        |  300 EE
+     4 | -y install selinux-policy-devel                                                                | 2026-10-06 23:51 | I, U           |    5   
+     3 | autoremove -y --setopt=metadata_expire=-1                                                      | 2026-10-06 21:51 | Removed        |    1  <
+     2 | remove -y --setopt=metadata_expire=-1 spice-vdagent open-vm-tools                              | 2026-10-06 21:50 | Removed        |    2 >E
+     1 |                                                                                                | 2026-10-06 21:47 | Install        | 1944 EE

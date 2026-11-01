@@ -5,4 +5,4 @@
 | Задание | Материалы и описание выполнения |
 | --- | --- |
 | ДЗ №1 | [ds-1](ds-1/README.md) |
-| ДЗ №2 | [ds-2](https://github.com/lavrenyk/mephi-session-project-2026) |
+| ДЗ №2 | [ds-2](ds-2/README.md) |
